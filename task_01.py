@@ -4,17 +4,20 @@ class Date:
 
     def __init__(self, date):
         if len(date) == 10:
-            if (int(date[6:]) % 4 != 0 and 0 < int(date[3:5]) < 13 and 0 < int(date[0:2]) <= Date.days[int(date[3:5])] and
-                    0 < int(date[6:]) < 2024):
+            if (0 < int(date[3:5]) < 13 and int(date[0:2]) != 2 and 0 < int(date[0:2]) <= Date.days[int(date[3:5])]
+                    and 0 < int(date[6:]) < 2024):
                 self._date = date
 
-            elif (int(date[3:5]) == 2 and int(date[6:]) % 4 == 0 and
-                  0 < int(date[0:2]) <= Date.days[int(date[3:5])] + 1 and 0 < int(date[6:]) < 2024):
+            elif (int(date[3:5]) == 2 and int(date[6:]) % 4 == 0 and 0 < int(date[0:2]) <= Date.days[int(date[3:5])] + 1
+                  and 0 < int(date[6:]) < 2024):
                 self._date = date
 
             else:
                 print('ошибка')
                 self._date = None
+        else:
+            print('ошибка')
+            self._date = None
 
     def __repr__(self):
         return str(self._date)
@@ -29,18 +32,20 @@ class Date:
     @date.setter
     def date(self, date):
         if len(date) == 10:
-            if (int(date[6:]) % 4 != 0 and 0 < int(date[3:5]) < 13 and 0 < int(date[0:2]) <= Date.days[
-                int(date[3:5])] and
-                    0 < int(date[6:]) < 2024):
+            if (0 < int(date[3:5]) < 13 and int(date[0:2]) != 2 and 0 < int(date[0:2]) <= Date.days[int(date[3:5])]
+                    and 0 < int(date[6:]) < 2024):
                 self._date = date
 
-            elif (int(date[3:5]) == 2 and int(date[6:]) % 4 == 0 and
-                  0 < int(date[0:2]) <= Date.days[int(date[3:5])] + 1 and 0 < int(date[6:]) < 2024):
+            elif (int(date[3:5]) == 2 and int(date[6:]) % 4 == 0 and 0 < int(date[0:2]) <= Date.days[int(date[3:5])] + 1
+                  and 0 < int(date[6:]) < 2024):
                 self._date = date
 
             else:
                 print('ошибка')
                 self._date = None
+        else:
+            print('ошибка')
+            self._date = None
 
     def to_timestamp(self):
         seconds = 0
